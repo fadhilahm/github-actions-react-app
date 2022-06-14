@@ -16,3 +16,15 @@ jobs:
       - run: npm test -- --coverage
         env:
           CI: true
+      - name: Build
+        if: github.event_name == 'push'
+        run: npm run build
+      - name: Deploy to staging server
+        if: github.event_name == 'push'
+        run: >
+          npx surge
+          --project ./build
+          --domain glamorous-mint.surge.sh
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
