@@ -1,5 +1,7 @@
 # github-actions-react-app
 
+![badge icon](https://github.com/fadhilahm/github-actions-react-app/workflows/CI/badge.svg?branch=develop&event=push)
+
 Dummy react app used to practice github actions implementation.
 
 ## Getting Started with Create React App
