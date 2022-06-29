@@ -72,4 +72,3 @@ jobs:
         env:
           CODECOV_TOKEN: 17558442-ae32-4f9a-bea7-ca29a96f51a0
         run: npx codecov
-
