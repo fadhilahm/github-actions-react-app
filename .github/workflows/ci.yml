@@ -67,3 +67,9 @@ jobs:
           npx surge
           --project ./build
           --domain panicky-brush.surge.sh
+      - name: Upload code coverage
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          CODECOV_TOKEN: 17558442-ae32-4f9a-bea7-ca29a96f51a0
+        run: npx codecov
+
