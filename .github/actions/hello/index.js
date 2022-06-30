@@ -2,7 +2,7 @@ const { getInput, setFailed, setOutput } = require("@actions/core");
 const github = require("@actions/github");
 
 try {
-  throw "Some error";
+  throw new Error("Some error");
   const whoToGreet = getInput("who-to-greet");
   console.log(`Hello Happy ${whoToGreet}! |  ハローハッピー${whoToGreet}!`);
 
