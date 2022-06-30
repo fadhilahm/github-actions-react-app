@@ -15,4 +15,4 @@ jobs:
         with:
           who-to-greet: ワールド
       - name: Output time
-        run: echo ${{ steps.greet.outputs.time }}
+        run: echo "${{ steps.greet.outputs.time }}"
