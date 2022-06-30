@@ -8995,7 +8995,7 @@ const { getInput, setFailed, setOutput } = __nccwpck_require__(1279);
 const github = __nccwpck_require__(5763);
 
 try {
-  throw "Some error";
+  throw new Error("Some error");
   const whoToGreet = getInput("who-to-greet");
   console.log(`Hello Happy ${whoToGreet}! |  ハローハッピー${whoToGreet}!`);
 
