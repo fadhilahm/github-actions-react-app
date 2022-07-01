@@ -9,6 +9,7 @@ try {
   core.error("error message");
 
   const whoToGreet = core.getInput("who-to-greet");
+  core.setSecret(whoToGreet);
   console.log(`Hello Happy ${whoToGreet}! |  ハローハッピー${whoToGreet}!`);
 
   const currentTime = new Date();
