@@ -1,15 +1,24 @@
-const { getInput, setFailed, setOutput } = require("@actions/core");
+const core = require("@actions/core");
 const github = require("@actions/github");
 
 try {
-  throw new Error("Some error");
-  const whoToGreet = getInput("who-to-greet");
+  // throw new Error("Some error");
+
+  core.debug("debug message.");
+  core.warning("warning message.");
+  core.error("error message");
+
+  const whoToGreet = core.getInput("who-to-greet");
   console.log(`Hello Happy ${whoToGreet}! |  ハローハッピー${whoToGreet}!`);
 
   const currentTime = new Date();
-  setOutput("time", currentTime.toString());
+  core.setOutput("time", currentTime.toString());
 
+  core.startGroup("super duper long github object:");
   console.log(JSON.stringify(github, null, `\t`));
+  core.endGroup();
+
+  core.exportVariable("HELLO", "ハロー");
 } catch (error) {
-  setFailed(error.message);
+  core.setFailed(error.message);
 }

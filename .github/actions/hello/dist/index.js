@@ -8991,20 +8991,29 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const { getInput, setFailed, setOutput } = __nccwpck_require__(1279);
+const core = __nccwpck_require__(1279);
 const github = __nccwpck_require__(5763);
 
 try {
-  throw new Error("Some error");
-  const whoToGreet = getInput("who-to-greet");
+  // throw new Error("Some error");
+
+  core.debug("debug message.");
+  core.warning("warning message.");
+  core.error("error message");
+
+  const whoToGreet = core.getInput("who-to-greet");
   console.log(`Hello Happy ${whoToGreet}! |  ハローハッピー${whoToGreet}!`);
 
   const currentTime = new Date();
-  setOutput("time", currentTime.toString());
+  core.setOutput("time", currentTime.toString());
 
+  core.startGroup("super duper long github object:");
   console.log(JSON.stringify(github, null, `\t`));
+  core.endGroup();
+
+  core.exportVariable("HELLO", "ハロー");
 } catch (error) {
-  setFailed(error.message);
+  core.setFailed(error.message);
 }
 
 })();

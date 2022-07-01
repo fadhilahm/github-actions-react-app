@@ -16,3 +16,5 @@ jobs:
           who-to-greet: ワールド
       - name: Output time
         run: echo "${{ steps.greet.outputs.time }}"
+      - name: Log exported variable
+        run: echo $HELLO
