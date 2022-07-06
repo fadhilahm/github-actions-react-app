@@ -22,7 +22,7 @@ jobs:
         id: issue
         uses: ./.github/actions/issue
         with:
-          token: ${{ $secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           title: Title from WF
           body: Body from WF
           assignees: |
