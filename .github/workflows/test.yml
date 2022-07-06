@@ -18,3 +18,14 @@ jobs:
         run: echo "${{ steps.greet.outputs.time }}"
       - name: Log exported variable
         run: echo $HELLO
+      - name: Create issue
+        id: issue
+        uses: ./.github/actions/issue
+        with:
+          token: ${{ $secrets.GITHUB_TOKEN }}
+          title: Title from WF
+          body: Body from WF
+          assignees: |
+            fadhilahm
+      - name: Print issue
+        run: echo ${{ steps.issue.outputs.issue }}
