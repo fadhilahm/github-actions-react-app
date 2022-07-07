@@ -9003,6 +9003,10 @@ const main = async () => {
 
     const octokit = github.getOctokit(token)
 
+    core.startGroup('octokit object');
+    console.log(JSON.stringify(octokit))
+    core.endGroup()
+
     const response = await octokit.issues.create({
       ...github.context.repo,
       title,
