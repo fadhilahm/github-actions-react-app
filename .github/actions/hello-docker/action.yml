@@ -1,0 +1,16 @@
+name: Hello Happy World
+author: Fadhilah Metra
+description: Simple greeting JavaScript action.
+inputs:
+  who-to-greet:
+    default: World
+    description: Who will be greeted by this action.
+    required: false
+outputs:
+  time:
+    description: The time when the action was executed.
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.who-to-greet }}
