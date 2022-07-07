@@ -9001,13 +9001,13 @@ const main = async () => {
     const body = core.getInput("body");
     const assignees = core.getInput("assignees");
 
-    const octokit = github.getOctokit(token)
+    const octokit = github.getOctokit(token);
 
-    core.startGroup('octokit object');
-    console.log(JSON.stringify(octokit))
-    core.endGroup()
+    core.startGroup("octokit object");
+    console.log(JSON.stringify(octokit));
+    core.endGroup();
 
-    const response = await octokit.issues.create({
+    const response = octokit.rest.issues.create({
       ...github.context.repo,
       title,
       body,
